@@ -29,8 +29,10 @@ while True:
     try: temperature = float(user_input)
     
         input_data = pd.DataFrame({"Temperature (°C)": [temperature]})
-        predicted_sales = model.predict(input_data)[0]
+        predicted_sales = model
+        .predict(input_data)[0]
         print(f"-> Predicted Ice Cream Sales: ${predicted_sales:.2f}\n")
     except ValueError:
         print("Invalid input. Please enter a valid temperature.")
-    exit
+    except Exception as e:
+        print(f"An error occurred: {e}")
